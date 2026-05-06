@@ -10,26 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --yellow:#F5C800;
-  --plum:#7B4F7B;
-  --plum-dark:#5a375a;
-  --plum-mid:#9B6E9B;
-  --plum-light:#F3EDF3;
-  --moss:#4A6741;
-  --moss-light:#EEF3EE;
-  --ink:#1A1A2E;
-  --ink-soft:#4A4560;
-  --ink-muted:#8A8AAA;
-  --cream:#FAF8F4;
-  --white:#fff;
-  --border:rgba(123,79,123,0.13);
-}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+/* KEEP YOUR ORIGINAL CSS + ADD THIS */
 
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   background:var(--plum);
@@ -38,7 +20,9 @@ nav{
   padding:0.85rem 2.5rem;
   gap:1.5rem;
 }
+
 .nav-logo img{height:36px}
+
 .nav-links{
   display:flex;gap:1.75rem;
   list-style:none;align-items:center;
@@ -50,40 +34,6 @@ nav{
   text-decoration:none;
 }
 .nav-links a:hover{color:var(--yellow)}
-.nav-right{display:flex;align-items:center}
-.lang-toggle{display:flex;background:rgba(0,0,0,0.18);border-radius:100px;padding:3px}
-.lang-btn{border:none;background:transparent;padding:4px 12px;color:rgba(255,255,255,0.6);cursor:pointer}
-.lang-btn.active{background:var(--yellow);color:var(--ink)}
-
-.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none}
-.hamburger span{width:22px;height:2px;background:white}
-
-.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:var(--plum);flex-direction:column;padding:1rem}
-.mobile-menu.open{display:flex}
-
-/* HEADER */
-.cv-header{margin-top:58px;background:var(--plum);color:white;padding:3rem}
-.header-name{font-family:'Playfair Display',serif;font-size:2.5rem}
-
-/* BODY */
-.cv-body{display:grid;grid-template-columns:280px 1fr}
-.sidebar{background:var(--plum-light);padding:2rem}
-.cv-main{padding:2rem}
-
-/* FOOTER */
-footer{
-  background:var(--plum-dark);
-  padding:1.25rem 2.5rem;
-  display:flex;justify-content:space-between;
-  flex-wrap:wrap;
-}
-footer p{color:rgba(255,255,255,0.3)}
-
-@media(max-width:768px){
-  .nav-links,.nav-right{display:none}
-  .hamburger{display:flex}
-  .cv-body{grid-template-columns:1fr}
-}
 </style>
 </head>
 
@@ -91,7 +41,7 @@ footer p{color:rgba(255,255,255,0.3)}
 
 <!-- NAV -->
 <nav>
-  <a href="/index.html" class="nav-logo">
+  <a href="../index.html" class="nav-logo">
     <img src="/RECURSOS/MULTIMEDIA/BRAND/Morita-Ico.png">
   </a>
 
@@ -109,46 +59,43 @@ footer p{color:rgba(255,255,255,0.3)}
     </div>
   </div>
 
-  <button class="hamburger" onclick="toggleMenu()">
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
-<!-- MOBILE -->
+<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="/who-we-are.html" id="mob-who">Quiénes somos</a>
   <a href="/what-we-do.html" id="mob-what">Qué hacemos</a>
   <a href="/how-we-do-it.html" id="mob-how">Cómo lo hacemos</a>
   <a href="/find-us.html" id="mob-find">Dónde encontrarnos</a>
+
+  <div class="mobile-lang">
+    <button class="mob-lang-btn active" id="mob-btn-esp" onclick="setLang('es')">ESP</button>
+    <button class="mob-lang-btn" id="mob-btn-eng" onclick="setLang('en')">ENG</button>
+  </div>
 </div>
 
-<!-- HEADER -->
-<header class="cv-header">
-  <h1 class="header-name">Lina María<br><em>Forero Suescún</em></h1>
-</header>
+<!-- KEEP YOUR ORIGINAL HEADER + BODY EXACTLY AS THEY WERE -->
 
-<!-- BODY -->
-<div class="cv-body">
-  <aside class="sidebar">
-    <p>Sidebar content (keep your original)</p>
-  </aside>
-
-  <main class="cv-main">
-    <p>Main content (keep your original)</p>
-  </main>
-</div>
-
-<!-- FOOTER -->
+<!-- FOOTER (template version) -->
 <footer>
   <p>© 2026 Berry Clever · Bogotá, Colombia</p>
-  <div>
-    <a href="mailto:BerryClever@proton.me">BerryClever@proton.me</a>
+  <div class="footer-right">
+    <a href="https://www.linkedin.com/company/berryclever/posts/?feedView=all"
+       target="_blank" class="footer-linkedin">LinkedIn</a>
+    <a href="mailto:BerryClever@proton.me" class="footer-email">
+      BerryClever@proton.me
+    </a>
   </div>
 </footer>
 
 <script>
-const navTx = {
+/* 🔥 UNIFIED TRANSLATION SYSTEM */
+const tx = {
   es:{
+    /* NAV */
     'nav-who':'Quiénes somos',
     'nav-what':'Qué hacemos',
     'nav-how':'Cómo lo hacemos',
@@ -156,9 +103,17 @@ const navTx = {
     'mob-who':'Quiénes somos',
     'mob-what':'Qué hacemos',
     'mob-how':'Cómo lo hacemos',
-    'mob-find':'Dónde encontrarnos'
+    'mob-find':'Dónde encontrarnos',
+
+    /* YOUR ORIGINAL KEYS (keep ALL of them here) */
+    'nav-back-text':'Volver al sitio',
+    'h-role':'Investigadora Senior · Berry Clever',
+    'h-tagline':'Antropóloga y gestora de proyectos...',
+    'ml-profile':'Perfil'
   },
+
   en:{
+    /* NAV */
     'nav-who':'Who we are',
     'nav-what':'What we do',
     'nav-how':'How we do it',
@@ -166,20 +121,33 @@ const navTx = {
     'mob-who':'Who we are',
     'mob-what':'What we do',
     'mob-how':'How we do it',
-    'mob-find':'Where to find us'
+    'mob-find':'Where to find us',
+
+    /* YOUR ORIGINAL KEYS */
+    'nav-back-text':'Back to site',
+    'h-role':'Senior Researcher · Berry Clever',
+    'h-tagline':'Anthropologist and project manager...',
+    'ml-profile':'Profile'
   }
 };
 
 function setLang(l){
-  const d=navTx[l];
+  const d = tx[l];
+
   for(const [id,val] of Object.entries(d)){
     const el=document.getElementById(id);
-    if(el)el.textContent=val;
+    if(el) el.innerHTML=val;
   }
+
+  ['btn-eng','mob-btn-eng'].forEach(id=>document.getElementById(id).classList.toggle('active',l==='en'));
+  ['btn-esp','mob-btn-esp'].forEach(id=>document.getElementById(id).classList.toggle('active',l==='es'));
+
+  document.documentElement.lang=l;
 }
 
 function toggleMenu(){
   document.getElementById('mobile-menu').classList.toggle('open');
+  document.getElementById('hamburger').classList.toggle('open');
 }
 </script>
 
