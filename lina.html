@@ -169,32 +169,25 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="../index.html" class="nav-logo">
-    <svg width="30" height="30" viewBox="0 0 36 36" fill="none">
-      <circle cx="18" cy="21" r="12" fill="rgba(255,255,255,0.15)"/>
-      <circle cx="13" cy="19" r="4" fill="rgba(255,255,255,0.25)"/>
-      <circle cx="20" cy="17" r="4.5" fill="rgba(255,255,255,0.25)"/>
-      <circle cx="18" cy="25" r="4" fill="rgba(255,255,255,0.25)"/>
-      <circle cx="25" cy="22" r="3.5" fill="rgba(255,255,255,0.25)"/>
-      <path d="M14 11 Q15 7 18 9" stroke="#F5C800" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-      <path d="M18 9 Q21 6 23 10" stroke="#F5C800" stroke-width="1.8" stroke-linecap="round" fill="none"/>
-      <circle cx="14" cy="21" r="4" fill="none" stroke="rgba(26,26,46,0.6)" stroke-width="1.4"/>
-      <circle cx="22" cy="21" r="4" fill="none" stroke="rgba(26,26,46,0.6)" stroke-width="1.4"/>
-    </svg>
-    <span class="nav-logo-text">Berry Clever</span>
+  <a href="/index.html" class="nav-logo">
+    <img src="/RECURSOS/MULTIMEDIA/BRAND/Morita-Ico.png" alt="Berry Clever">
   </a>
-  <a href="../index.html" class="nav-back">
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <span id="nav-back-text">Volver al sitio</span>
-  </a>
+
+  <ul class="nav-links">
+    <li><a href="/who-we-are.html" id="nav-who">Quiénes somos</a></li>
+    <li><a href="/what-we-do.html" id="nav-what">Qué hacemos</a></li>
+    <li><a href="/how-we-do-it.html" id="nav-how">Cómo lo hacemos</a></li>
+    <li><a href="/find-us.html" id="nav-find">Dónde encontrarnos</a></li>
+  </ul>
+
   <div class="nav-right">
     <div class="lang-toggle">
-      <button class="lang-btn" id="btn-eng" onclick="setLang('en')">ENG</button>
       <button class="lang-btn active" id="btn-esp" onclick="setLang('es')">ESP</button>
+      <button class="lang-btn" id="btn-eng" onclick="setLang('en')">ENG</button>
     </div>
   </div>
+
   <button class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </button>
@@ -202,10 +195,13 @@ footer p{font-size:0.75rem;color:rgba(255,255,255,0.3)}
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
-  <a href="../index.html" id="mob-back">← Volver al sitio</a>
+  <a href="/who-we-are.html" id="mob-who">Quiénes somos</a>
+  <a href="/what-we-do.html" id="mob-what">Qué hacemos</a>
+  <a href="/how-we-do-it.html" id="mob-how">Cómo lo hacemos</a>
+  <a href="/find-us.html" id="mob-find">Dónde encontrarnos</a>
   <div class="mobile-lang">
-    <button class="mob-lang-btn" id="mob-btn-eng" onclick="setLang('en')">ENG</button>
     <button class="mob-lang-btn active" id="mob-btn-esp" onclick="setLang('es')">ESP</button>
+    <button class="mob-lang-btn" id="mob-btn-eng" onclick="setLang('en')">ENG</button>
   </div>
 </div>
 
